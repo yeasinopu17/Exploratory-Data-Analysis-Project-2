@@ -11,7 +11,6 @@ NEISCC <- inner_join(NEI,SCC, by = c("SCC"="SCC"))
 
 
 #filter baltimore and Los Angeles data
-names(NEISCC)
 data <- filter(NEISCC, fips == "24510"| fips == "06037") %>% 
   mutate(city = ifelse(fips == "24510","Baltimore", "Los Angeles"), 
          vehicle = grepl("vehicle",SCC.Level.Two, ignore.case = T)) %>%
